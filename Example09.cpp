@@ -9,6 +9,7 @@ int main()
     set<string> n = {"book", "cow", "dog", "home", "grass", "rice", "mango"};
     set<string> v = {"read", "eat", "take", "run", "write"};
     string sentence;
+    
     while (getline(cin, sentence))
     {
         vector<string> words;
