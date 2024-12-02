@@ -4,8 +4,8 @@ using namespace std;
 int main()
 {
 
-    set<string> pn = {"Sagor", "Selim", "Salma", "Nipu"};
-    set<string> p = {"he", "she", "I", "we", "you", "they"};
+    set<string> pn = {"Sagor", "Selim", "Salma", "Nipu", "he", "she", "I", "we", "you", "they"};
+    //set<string> p = {};
     set<string> n = {"book", "cow", "dog", "home", "grass", "rice", "mango"};
     set<string> v = {"read", "eat", "take", "run", "write"};
     string sentence;
@@ -35,13 +35,14 @@ int main()
         }
 
         bool isValid = true;
-        if (!pn.count(words[0]) && !p.count(words[0]))
+        if(find(pn.begin(), pn.end(), words[0]) == pn.end())
             isValid = false;
-        if (!v.count(words[1]))
+        if(find(v.begin(), v.end(), words[1]) == v.end())
             isValid = false;
-        if (words.size() > 2 && !n.count(words[2]))
-            isValid = false;
-
+        if(words.size() == 3){
+            if(find(n.begin(), n.end(), words[2]) == n.end())
+                isValid = false;
+        }
         if (isValid)
             cout << "Valid" << endl;
         else
